@@ -1,0 +1,40 @@
+version: 2
+
+models:
+
+  - name: int_video_metrics_joined
+    description: >
+      Wide table joining fact_daily_video_metrics to all three dimensions.
+      One row per video per day. Used as the single source for all mart models.
+    tests:
+      - dbt_utils.unique_combination_of_columns:
+          combination_of_columns:
+            - video_id
+            - metrics_date
+    columns:
+      - name: video_id
+        tests:
+          - not_null
+      - name: metrics_date
+        tests:
+          - not_null
+      - name: channel_id
+        tests:
+          - not_null
+      - name: category_id
+        tests:
+          - not_null
+      - name: views
+        tests:
+          - dbt_utils.expression_is_true:
+              arguments:
+                expression: ">= 0"
+      - name: watch_time_minutes
+        tests:
+          - dbt_utils.expression_is_true:
+              arguments:
+                expression: ">= 0"
+      - name: video_type
+        tests:
+          - accepted_values:
+              values: ['Long-form', 'Short-form']

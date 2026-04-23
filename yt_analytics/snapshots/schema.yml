@@ -1,0 +1,23 @@
+version: 2
+
+snapshots:
+
+  - name: snap_dim_channel
+    description: >
+      SCD Type 2 history of channel dimension. Tracks changes to channel_name.
+      dbt_valid_from = when this version became active.
+      dbt_valid_to = when it was superseded (null = currently active record).
+    columns:
+      - name: channel_id
+        tests:
+          - not_null
+      - name: channel_name
+        tests:
+          - not_null
+      - name: dbt_valid_from
+        tests:
+          - not_null
+      - name: dbt_scd_id
+        tests:
+          - unique
+          - not_null

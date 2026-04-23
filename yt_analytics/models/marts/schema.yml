@@ -1,0 +1,87 @@
+version: 2
+
+models:
+
+  - name: mart_channel_summary
+    description: "One row per channel. Aggregated views, watch time, engagement, and derived metrics."
+    columns:
+      - name: channel_id
+        description: "Primary key."
+        tests:
+          - unique
+          - not_null
+      - name: channel_name
+        tests:
+          - not_null
+      - name: total_views
+        tests:
+          - not_null
+          - dbt_utils.expression_is_true:
+              expression: ">= 0"
+      - name: total_watch_time_minutes
+        tests:
+          - dbt_utils.expression_is_true:
+              expression: ">= 0"
+      - name: like_rate
+        tests:
+          - dbt_utils.expression_is_true:
+              expression: "between 0 and 1"
+      - name: avg_ctr
+        tests:
+          - dbt_utils.expression_is_true:
+              expression: "between 0 and 1"
+
+  - name: mart_video_performance
+    description: "One row per video. Full-period aggregated performance with channel and category context."
+    columns:
+      - name: video_id
+        description: "Primary key."
+        tests:
+          - unique
+          - not_null
+      - name: video_title
+        tests:
+          - not_null
+      - name: total_views
+        tests:
+          - not_null
+          - dbt_utils.expression_is_true:
+              expression: ">= 0"
+      - name: like_rate
+        tests:
+          - dbt_utils.expression_is_true:
+              expression: "between 0 and 1"
+      - name: video_type
+        tests:
+          - accepted_values:
+              values: ['Long-form', 'Short-form']
+
+  - name: mart_category_trends
+    description: "One row per category per month per video type. Used for trend analysis."
+    tests:
+      - dbt_utils.unique_combination_of_columns:
+          combination_of_columns:
+            - category_name
+            - metrics_month
+            - video_type
+    columns:
+      - name: category_name
+        tests:
+          - not_null
+      - name: metrics_month
+        tests:
+          - not_null
+      - name: video_type
+        tests:
+          - not_null
+          - accepted_values:
+              values: ['Long-form', 'Short-form']
+      - name: total_views
+        tests:
+          - not_null
+          - dbt_utils.expression_is_true:
+              expression: ">= 0"
+      - name: like_rate
+        tests:
+          - dbt_utils.expression_is_true:
+              expression: "between 0 and 1"

@@ -1,0 +1,114 @@
+version: 2
+
+models:
+
+  - name: stg_dim_category
+    description: >
+      Cleaned category dimension. Incremental model — inserts new categories,
+      updates changed ones. One row per category_id.
+    columns:
+      - name: category_id
+        tests:
+          - unique
+          - not_null
+      - name: category_name
+        tests:
+          - not_null
+
+  - name: stg_dim_video
+    description: >
+      Cleaned video dimension. Incremental upsert on video_id.
+      Null video_ids and duplicates excluded in staging logic.
+    columns:
+      - name: video_id
+        tests:
+          - unique
+          - not_null
+      - name: channel_id
+        tests:
+          - not_null
+          - relationships:
+              to: ref('stg_dim_channel')
+              field: channel_id
+      - name: video_published_date
+        tests:
+          - not_null
+      - name: video_length_seconds
+        tests:
+          - not_null
+          - dbt_utils.expression_is_true:
+              arguments:
+                expression: "> 0"
+      - name: category_id
+        tests:
+          - not_null
+          - relationships:
+              to: ref('stg_dim_category')
+              field: category_id
+      - name: video_type
+        tests:
+          - not_null
+          - accepted_values:
+              values: ['Long-form', 'Short-form']
+
+  - name: stg_fact_daily_video_metrics
+    description: >
+      Cleaned daily video metrics. Incremental merge on (video_id, metrics_date) —
+      only inserts new rows or updates rows where any metric column has changed.
+    tests:
+      - dbt_utils.unique_combination_of_columns:
+          combination_of_columns:
+            - video_id
+            - metrics_date
+    columns:
+      - name: video_id
+        tests:
+          - not_null
+          - relationships:
+              to: ref('stg_dim_video')
+              field: video_id
+      - name: metrics_date
+        tests:
+          - not_null
+      - name: views
+        tests:
+          - not_null
+          - dbt_utils.expression_is_true:
+              arguments:
+                expression: ">= 0"
+      - name: watch_time_minutes
+        tests:
+          - not_null
+          - dbt_utils.expression_is_true:
+              arguments:
+                expression: ">= 0"
+      - name: comments
+        tests:
+          - not_null
+          - dbt_utils.expression_is_true:
+              arguments:
+                expression: ">= 0"
+      - name: likes
+        tests:
+          - not_null
+          - dbt_utils.expression_is_true:
+              arguments:
+                expression: ">= 0"
+      - name: shares
+        tests:
+          - not_null
+          - dbt_utils.expression_is_true:
+              arguments:
+                expression: ">= 0"
+      - name: thumbnail_impressions
+        tests:
+          - not_null
+          - dbt_utils.expression_is_true:
+              arguments:
+                expression: ">= 0"
+      - name: ctr_pct
+        tests:
+          - not_null
+          - dbt_utils.expression_is_true:
+              arguments:
+                expression: "between 0 and 1"

@@ -1,0 +1,134 @@
+[0m18:12:58.081420 [debug] [MainThread]: Sending event: {'category': 'dbt', 'action': 'invocation', 'label': 'start', 'context': [<snowplow_tracker.self_describing_json.SelfDescribingJson object at 0x000001623D736F30>, <snowplow_tracker.self_describing_json.SelfDescribingJson object at 0x000001623CE5CF20>, <snowplow_tracker.self_describing_json.SelfDescribingJson object at 0x000001623D2AA660>]}
+
+
+============================== 18:12:58.089171 | 63ae806c-eb09-433a-a3d0-9fef1f71cdb6 ==============================
+[0m18:12:58.089171 [info ] [MainThread]: Running with dbt=1.11.8
+[0m18:12:58.089171 [debug] [MainThread]: running dbt with arguments {'static_parser': 'True', 'no_print': 'None', 'version_check': 'True', 'target_path': 'None', 'warn_error_options': 'WarnErrorOptionsV2(error=[], warn=[], silence=[])', 'printer_width': '80', 'write_json': 'True', 'empty': 'None', 'log_cache_events': 'False', 'introspect': 'True', 'cache_selected_only': 'False', 'log_format': 'default', 'debug': 'False', 'fail_fast': 'False', 'partial_parse': 'True', 'send_anonymous_usage_stats': 'True', 'quiet': 'False', 'warn_error': 'None', 'profiles_dir': 'C:\\Users\\nikak\\.dbt', 'use_colors': 'True', 'indirect_selection': 'eager', 'invocation_command': 'dbt init', 'use_experimental_parser': 'False', 'log_path': 'logs'}
+[0m18:21:07.548644 [debug] [MainThread]: Starter project path: C:\Users\nikak\OneDrive\Desktop\yt_analytics\Lib\site-packages\dbt\include\starter_project
+[0m18:21:07.706010 [info ] [MainThread]: 
+Your new dbt project "yt_analytics" was created!
+
+For more information on how to configure the profiles.yml file,
+please consult the dbt documentation here:
+
+  https://docs.getdbt.com/docs/configure-your-profile
+
+One more thing:
+
+Need help? Don't hesitate to reach out to us via GitHub issues or on Slack:
+
+  https://community.getdbt.com/
+
+Happy modeling!
+
+[0m18:21:07.707436 [info ] [MainThread]: Setting up your profile.
+[0m18:21:12.058250 [debug] [MainThread]: Command `dbt init` succeeded at 18:21:12.058250 after 494.38 seconds
+[0m18:21:12.058250 [debug] [MainThread]: Sending event: {'category': 'dbt', 'action': 'invocation', 'label': 'end', 'context': [<snowplow_tracker.self_describing_json.SelfDescribingJson object at 0x000001623CDF49E0>, <snowplow_tracker.self_describing_json.SelfDescribingJson object at 0x000001623D39FD40>, <snowplow_tracker.self_describing_json.SelfDescribingJson object at 0x000001623EC1CB90>]}
+[0m18:21:12.058250 [debug] [MainThread]: Flushing usage events
+[0m18:21:19.073537 [debug] [MainThread]: An error was encountered while trying to flush usage events
+[0m20:23:31.081962 [debug] [MainThread]: Sending event: {'category': 'dbt', 'action': 'invocation', 'label': 'start', 'context': [<snowplow_tracker.self_describing_json.SelfDescribingJson object at 0x00000250EA360680>, <snowplow_tracker.self_describing_json.SelfDescribingJson object at 0x00000250EA23F4A0>, <snowplow_tracker.self_describing_json.SelfDescribingJson object at 0x00000250EA8117C0>]}
+
+
+============================== 20:23:31.091985 | 68cfc778-618e-4549-a93d-1c4af45fc0d8 ==============================
+[0m20:23:31.091985 [info ] [MainThread]: Running with dbt=1.11.8
+[0m20:23:31.094026 [debug] [MainThread]: running dbt with arguments {'version_check': 'True', 'no_print': 'None', 'static_parser': 'True', 'warn_error_options': 'WarnErrorOptionsV2(error=[], warn=[], silence=[])', 'target_path': 'None', 'printer_width': '80', 'write_json': 'True', 'empty': 'False', 'log_cache_events': 'False', 'introspect': 'True', 'cache_selected_only': 'False', 'log_format': 'default', 'debug': 'False', 'fail_fast': 'False', 'partial_parse': 'True', 'send_anonymous_usage_stats': 'True', 'quiet': 'False', 'warn_error': 'None', 'profiles_dir': 'C:\\Users\\nikak\\.dbt', 'invocation_command': 'dbt run', 'indirect_selection': 'eager', 'use_colors': 'True', 'use_experimental_parser': 'False', 'log_path': 'logs'}
+[0m20:23:31.094026 [error] [MainThread]: Encountered an error:
+Runtime Error
+  No dbt_project.yml found at expected path C:\Users\nikak\OneDrive\Desktop\yt_analytics\dbt_project.yml
+  Verify that each entry within packages.yml (and their transitive dependencies) contains a file named dbt_project.yml
+  
+[0m20:23:31.094026 [debug] [MainThread]: Command `dbt run` failed at 20:23:31.094026 after 0.31 seconds
+[0m20:23:31.094026 [debug] [MainThread]: Sending event: {'category': 'dbt', 'action': 'invocation', 'label': 'end', 'context': [<snowplow_tracker.self_describing_json.SelfDescribingJson object at 0x00000250EA493E90>, <snowplow_tracker.self_describing_json.SelfDescribingJson object at 0x00000250EA7B57F0>, <snowplow_tracker.self_describing_json.SelfDescribingJson object at 0x00000250EA874A70>]}
+[0m20:23:31.094026 [debug] [MainThread]: Flushing usage events
+[0m20:23:32.463132 [debug] [MainThread]: An error was encountered while trying to flush usage events
+[0m20:24:14.203601 [debug] [MainThread]: Sending event: {'category': 'dbt', 'action': 'invocation', 'label': 'start', 'context': [<snowplow_tracker.self_describing_json.SelfDescribingJson object at 0x0000023565EA1460>, <snowplow_tracker.self_describing_json.SelfDescribingJson object at 0x0000023563AC9F70>, <snowplow_tracker.self_describing_json.SelfDescribingJson object at 0x0000023566586E70>]}
+
+
+============================== 20:24:14.216415 | 5fa4506c-0669-4d58-ae8f-fef03d6ee594 ==============================
+[0m20:24:14.216415 [info ] [MainThread]: Running with dbt=1.11.8
+[0m20:24:14.216415 [debug] [MainThread]: running dbt with arguments {'static_parser': 'True', 'no_print': 'None', 'version_check': 'True', 'warn_error_options': 'WarnErrorOptionsV2(error=[], warn=[], silence=[])', 'target_path': 'None', 'printer_width': '80', 'write_json': 'True', 'empty': 'False', 'log_cache_events': 'False', 'introspect': 'True', 'cache_selected_only': 'False', 'fail_fast': 'False', 'debug': 'False', 'log_format': 'default', 'partial_parse': 'True', 'send_anonymous_usage_stats': 'True', 'quiet': 'False', 'warn_error': 'None', 'profiles_dir': 'C:\\Users\\nikak\\.dbt', 'invocation_command': 'dbt run', 'use_colors': 'True', 'indirect_selection': 'eager', 'use_experimental_parser': 'False', 'log_path': 'C:\\Users\\nikak\\OneDrive\\Desktop\\yt_analytics\\logs'}
+[0m20:24:15.085561 [debug] [MainThread]: Sending event: {'category': 'dbt', 'action': 'project_id', 'label': '5fa4506c-0669-4d58-ae8f-fef03d6ee594', 'context': [<snowplow_tracker.self_describing_json.SelfDescribingJson object at 0x0000023565A70320>]}
+[0m20:24:15.195245 [debug] [MainThread]: Sending event: {'category': 'dbt', 'action': 'adapter_info', 'label': '5fa4506c-0669-4d58-ae8f-fef03d6ee594', 'context': [<snowplow_tracker.self_describing_json.SelfDescribingJson object at 0x00000235665569F0>]}
+[0m20:24:15.232058 [info ] [MainThread]: Registered adapter: duckdb=1.10.1
+[0m20:24:15.991893 [debug] [MainThread]: checksum: 7d524ac048c2100769df89d592e662e060a73ca564e31bd9c2a37efdfe8d8ab6, vars: {}, profile: , target: , version: 1.11.8
+[0m20:24:15.991893 [info ] [MainThread]: Unable to do partial parsing because saved manifest not found. Starting full parse.
+[0m20:24:15.994383 [debug] [MainThread]: Sending event: {'category': 'dbt', 'action': 'partial_parser', 'label': '5fa4506c-0669-4d58-ae8f-fef03d6ee594', 'context': [<snowplow_tracker.self_describing_json.SelfDescribingJson object at 0x0000023567BEE150>]}
+[0m20:24:20.211530 [warn ] [MainThread]: [[33mWARNING[0m]: Configuration paths exist in your dbt_project.yml file which do not apply to any resources.
+There are 1 unused configuration paths:
+- models.yt_analytics.example
+[0m20:24:20.215777 [debug] [MainThread]: Sending event: {'category': 'dbt', 'action': 'load_project', 'label': '5fa4506c-0669-4d58-ae8f-fef03d6ee594', 'context': [<snowplow_tracker.self_describing_json.SelfDescribingJson object at 0x0000023567E285C0>]}
+[0m20:24:20.303285 [debug] [MainThread]: Wrote artifact WritableManifest to C:\Users\nikak\OneDrive\Desktop\yt_analytics\target\manifest.json
+[0m20:24:20.337192 [debug] [MainThread]: Wrote artifact SemanticManifest to C:\Users\nikak\OneDrive\Desktop\yt_analytics\target\semantic_manifest.json
+[0m20:24:20.366590 [debug] [MainThread]: Sending event: {'category': 'dbt', 'action': 'resource_counts', 'label': '5fa4506c-0669-4d58-ae8f-fef03d6ee594', 'context': [<snowplow_tracker.self_describing_json.SelfDescribingJson object at 0x0000023567AB5F10>]}
+[0m20:24:20.369417 [info ] [MainThread]: Found 475 macros
+[0m20:24:20.371195 [debug] [MainThread]: Sending event: {'category': 'dbt', 'action': 'runnable_timing', 'label': '5fa4506c-0669-4d58-ae8f-fef03d6ee594', 'context': [<snowplow_tracker.self_describing_json.SelfDescribingJson object at 0x0000023567F2A4E0>]}
+[0m20:24:20.373827 [warn ] [MainThread]: Nothing to do. Try checking your model configs and model specification args
+[0m20:24:20.373827 [debug] [MainThread]: Command end result
+[0m20:24:20.412028 [debug] [MainThread]: Wrote artifact WritableManifest to C:\Users\nikak\OneDrive\Desktop\yt_analytics\target\manifest.json
+[0m20:24:20.412028 [debug] [MainThread]: Wrote artifact SemanticManifest to C:\Users\nikak\OneDrive\Desktop\yt_analytics\target\semantic_manifest.json
+[0m20:24:20.425862 [debug] [MainThread]: Wrote artifact RunExecutionResult to C:\Users\nikak\OneDrive\Desktop\yt_analytics\target\run_results.json
+[0m20:24:20.427618 [debug] [MainThread]: Command `dbt run` succeeded at 20:24:20.427618 after 6.44 seconds
+[0m20:24:20.427618 [debug] [MainThread]: Sending event: {'category': 'dbt', 'action': 'invocation', 'label': 'end', 'context': [<snowplow_tracker.self_describing_json.SelfDescribingJson object at 0x00000235662FD0D0>, <snowplow_tracker.self_describing_json.SelfDescribingJson object at 0x0000023563AC9F70>, <snowplow_tracker.self_describing_json.SelfDescribingJson object at 0x0000023566462F30>]}
+[0m20:24:20.429404 [debug] [MainThread]: Flushing usage events
+[0m20:24:21.832887 [debug] [MainThread]: An error was encountered while trying to flush usage events
+[0m21:06:02.000567 [debug] [MainThread]: Sending event: {'category': 'dbt', 'action': 'invocation', 'label': 'start', 'context': [<snowplow_tracker.self_describing_json.SelfDescribingJson object at 0x000001C19B515D00>, <snowplow_tracker.self_describing_json.SelfDescribingJson object at 0x000001C19ED8E5D0>, <snowplow_tracker.self_describing_json.SelfDescribingJson object at 0x000001C19ED8F9B0>]}
+
+
+============================== 21:06:02.014799 | 54ddc047-a304-4626-83ce-6cfd93afad17 ==============================
+[0m21:06:02.014799 [info ] [MainThread]: Running with dbt=1.11.8
+[0m21:06:02.015937 [debug] [MainThread]: running dbt with arguments {'static_parser': 'True', 'no_print': 'None', 'version_check': 'True', 'target_path': 'None', 'warn_error_options': 'WarnErrorOptionsV2(error=[], warn=[], silence=[])', 'printer_width': '80', 'write_json': 'True', 'empty': 'False', 'log_cache_events': 'False', 'introspect': 'True', 'cache_selected_only': 'False', 'log_format': 'default', 'debug': 'False', 'fail_fast': 'False', 'partial_parse': 'True', 'send_anonymous_usage_stats': 'True', 'quiet': 'False', 'warn_error': 'None', 'profiles_dir': 'C:\\Users\\nikak\\.dbt', 'indirect_selection': 'eager', 'invocation_command': 'dbt run', 'use_colors': 'True', 'use_experimental_parser': 'False', 'log_path': 'C:\\Users\\nikak\\OneDrive\\Desktop\\yt_analytics\\logs'}
+[0m21:06:03.046569 [debug] [MainThread]: Sending event: {'category': 'dbt', 'action': 'project_id', 'label': '54ddc047-a304-4626-83ce-6cfd93afad17', 'context': [<snowplow_tracker.self_describing_json.SelfDescribingJson object at 0x000001C19E72C050>]}
+[0m21:06:03.356991 [debug] [MainThread]: Sending event: {'category': 'dbt', 'action': 'adapter_info', 'label': '54ddc047-a304-4626-83ce-6cfd93afad17', 'context': [<snowplow_tracker.self_describing_json.SelfDescribingJson object at 0x000001C19C14CD70>]}
+[0m21:06:03.366598 [info ] [MainThread]: Registered adapter: duckdb=1.10.1
+[0m21:06:04.570976 [debug] [MainThread]: checksum: 7d524ac048c2100769df89d592e662e060a73ca564e31bd9c2a37efdfe8d8ab6, vars: {}, profile: , target: , version: 1.11.8
+[0m21:06:04.923029 [debug] [MainThread]: Partial parsing enabled: 0 files deleted, 0 files added, 0 files changed.
+[0m21:06:04.923029 [debug] [MainThread]: Nothing changed, skipping partial parsing.
+[0m21:06:04.930738 [debug] [MainThread]: Partial parsing enabled, no changes found, skipping parsing
+[0m21:06:04.933755 [warn ] [MainThread]: [[33mWARNING[0m]: Configuration paths exist in your dbt_project.yml file which do not apply to any resources.
+There are 1 unused configuration paths:
+- models.yt_analytics.example
+[0m21:06:04.940515 [debug] [MainThread]: Sending event: {'category': 'dbt', 'action': 'load_project', 'label': '54ddc047-a304-4626-83ce-6cfd93afad17', 'context': [<snowplow_tracker.self_describing_json.SelfDescribingJson object at 0x000001C1A0B18290>]}
+[0m21:06:05.124114 [debug] [MainThread]: Wrote artifact WritableManifest to C:\Users\nikak\OneDrive\Desktop\yt_analytics\target\manifest.json
+[0m21:06:05.133046 [debug] [MainThread]: Wrote artifact SemanticManifest to C:\Users\nikak\OneDrive\Desktop\yt_analytics\target\semantic_manifest.json
+[0m21:06:05.170519 [debug] [MainThread]: Sending event: {'category': 'dbt', 'action': 'resource_counts', 'label': '54ddc047-a304-4626-83ce-6cfd93afad17', 'context': [<snowplow_tracker.self_describing_json.SelfDescribingJson object at 0x000001C1A0BF8A10>]}
+[0m21:06:05.170519 [info ] [MainThread]: Found 475 macros
+[0m21:06:05.170519 [debug] [MainThread]: Sending event: {'category': 'dbt', 'action': 'runnable_timing', 'label': '54ddc047-a304-4626-83ce-6cfd93afad17', 'context': [<snowplow_tracker.self_describing_json.SelfDescribingJson object at 0x000001C1A0D19580>]}
+[0m21:06:05.178392 [warn ] [MainThread]: Nothing to do. Try checking your model configs and model specification args
+[0m21:06:05.186788 [debug] [MainThread]: Command end result
+[0m21:06:05.282242 [debug] [MainThread]: Wrote artifact WritableManifest to C:\Users\nikak\OneDrive\Desktop\yt_analytics\target\manifest.json
+[0m21:06:05.290731 [debug] [MainThread]: Wrote artifact SemanticManifest to C:\Users\nikak\OneDrive\Desktop\yt_analytics\target\semantic_manifest.json
+[0m21:06:05.290731 [debug] [MainThread]: Wrote artifact RunExecutionResult to C:\Users\nikak\OneDrive\Desktop\yt_analytics\target\run_results.json
+[0m21:06:05.303353 [debug] [MainThread]: Command `dbt run` succeeded at 21:06:05.303353 after 3.81 seconds
+[0m21:06:05.303353 [debug] [MainThread]: Sending event: {'category': 'dbt', 'action': 'invocation', 'label': 'end', 'context': [<snowplow_tracker.self_describing_json.SelfDescribingJson object at 0x000001C1A07290A0>, <snowplow_tracker.self_describing_json.SelfDescribingJson object at 0x000001C19ED1FDA0>, <snowplow_tracker.self_describing_json.SelfDescribingJson object at 0x000001C19F2CFCE0>]}
+[0m21:06:05.303353 [debug] [MainThread]: Flushing usage events
+[0m21:06:06.936504 [debug] [MainThread]: An error was encountered while trying to flush usage events
+[0m12:40:24.533111 [debug] [MainThread]: Sending event: {'category': 'dbt', 'action': 'invocation', 'label': 'start', 'context': [<snowplow_tracker.self_describing_json.SelfDescribingJson object at 0x00000241F8185160>, <snowplow_tracker.self_describing_json.SelfDescribingJson object at 0x00000241F7D5F230>, <snowplow_tracker.self_describing_json.SelfDescribingJson object at 0x00000241F7D5F320>]}
+
+
+============================== 12:40:24.543200 | c93a17d1-4e85-4d19-8125-2a8e75064450 ==============================
+[0m12:40:24.543200 [info ] [MainThread]: Running with dbt=1.11.8
+[0m12:40:24.543200 [debug] [MainThread]: running dbt with arguments {'static_parser': 'True', 'no_print': 'None', 'version_check': 'True', 'warn_error_options': 'WarnErrorOptionsV2(error=[], warn=[], silence=[])', 'target_path': 'None', 'printer_width': '80', 'write_json': 'True', 'introspect': 'True', 'log_cache_events': 'False', 'empty': 'False', 'cache_selected_only': 'False', 'log_format': 'default', 'debug': 'False', 'fail_fast': 'False', 'profiles_dir': 'C:\\Users\\nikak\\.dbt', 'send_anonymous_usage_stats': 'True', 'quiet': 'False', 'warn_error': 'None', 'partial_parse': 'True', 'indirect_selection': 'eager', 'invocation_command': 'dbt run', 'use_colors': 'True', 'use_experimental_parser': 'False', 'log_path': 'logs'}
+[0m12:40:24.543200 [error] [MainThread]: Encountered an error:
+Runtime Error
+  No dbt_project.yml found at expected path C:\Users\nikak\OneDrive\Desktop\yt_analytics\dbt_project.yml
+  Verify that each entry within packages.yml (and their transitive dependencies) contains a file named dbt_project.yml
+  
+[0m12:40:24.546439 [debug] [MainThread]: Command `dbt run` failed at 12:40:24.546439 after 0.40 seconds
+[0m12:40:24.547841 [debug] [MainThread]: Sending event: {'category': 'dbt', 'action': 'invocation', 'label': 'end', 'context': [<snowplow_tracker.self_describing_json.SelfDescribingJson object at 0x00000241F92A5370>, <snowplow_tracker.self_describing_json.SelfDescribingJson object at 0x00000241F93AC1D0>, <snowplow_tracker.self_describing_json.SelfDescribingJson object at 0x00000241F93AC740>]}
+[0m12:40:24.547841 [debug] [MainThread]: Flushing usage events
+[0m12:40:26.431153 [debug] [MainThread]: An error was encountered while trying to flush usage events
+[0m13:07:08.667684 [debug] [MainThread]: Sending event: {'category': 'dbt', 'action': 'invocation', 'label': 'start', 'context': [<snowplow_tracker.self_describing_json.SelfDescribingJson object at 0x000002831908F080>, <snowplow_tracker.self_describing_json.SelfDescribingJson object at 0x000002831908C230>, <snowplow_tracker.self_describing_json.SelfDescribingJson object at 0x000002831908F0E0>]}
+
+
+============================== 13:07:08.677434 | 7e75b9eb-8089-43f9-91ea-bea4846a5ac0 ==============================
+[0m13:07:08.677434 [info ] [MainThread]: Running with dbt=1.11.8
+[0m13:07:08.677434 [debug] [MainThread]: running dbt with arguments {'version_check': 'True', 'no_print': 'None', 'static_parser': 'True', 'target_path': 'None', 'warn_error_options': 'WarnErrorOptionsV2(error=[], warn=[], silence=[])', 'printer_width': '80', 'write_json': 'True', 'empty': 'False', 'log_cache_events': 'False', 'introspect': 'True', 'cache_selected_only': 'False', 'log_format': 'default', 'debug': 'False', 'fail_fast': 'False', 'partial_parse': 'True', 'send_anonymous_usage_stats': 'True', 'quiet': 'False', 'warn_error': 'None', 'profiles_dir': 'C:\\Users\\nikak\\.dbt', 'invocation_command': 'dbt run', 'indirect_selection': 'eager', 'use_colors': 'True', 'use_experimental_parser': 'False', 'log_path': 'logs'}
+[0m13:07:08.677434 [error] [MainThread]: Encountered an error:
+Runtime Error
+  No dbt_project.yml found at expected path C:\Users\nikak\OneDrive\Desktop\yt_analytics\dbt_project.yml
+  Verify that each entry within packages.yml (and their transitive dependencies) contains a file named dbt_project.yml
+  
+[0m13:07:08.677434 [debug] [MainThread]: Command `dbt run` failed at 13:07:08.677434 after 0.54 seconds
+[0m13:07:08.677434 [debug] [MainThread]: Sending event: {'category': 'dbt', 'action': 'invocation', 'label': 'end', 'context': [<snowplow_tracker.self_describing_json.SelfDescribingJson object at 0x0000028318513770>, <snowplow_tracker.self_describing_json.SelfDescribingJson object at 0x000002831A27BB60>, <snowplow_tracker.self_describing_json.SelfDescribingJson object at 0x0000028318AB1730>]}
+[0m13:07:08.682931 [debug] [MainThread]: Flushing usage events
+[0m13:07:09.970515 [debug] [MainThread]: An error was encountered while trying to flush usage events

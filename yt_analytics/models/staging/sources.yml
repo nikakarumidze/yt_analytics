@@ -1,0 +1,10 @@
+version: 2
+
+sources:
+  - name: raw
+    schema: main        # DuckDB default schema — adjust if yours differs
+    tables:
+      - name: dim_category
+      - name: dim_channel
+      - name: dim_video
+      - name: fact_daily_video_metrics
