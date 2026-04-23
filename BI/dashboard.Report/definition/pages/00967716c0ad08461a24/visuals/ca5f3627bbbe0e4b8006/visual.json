@@ -1,0 +1,56 @@
+{
+  "$schema": "https://developer.microsoft.com/json-schemas/fabric/item/report/definition/visualContainer/2.8.0/schema.json",
+  "name": "ca5f3627bbbe0e4b8006",
+  "position": {
+    "x": 9.47892158753423,
+    "y": 0,
+    "z": 0,
+    "height": 1080.5970609789024,
+    "width": 1910.0026998881476,
+    "tabOrder": 0
+  },
+  "visual": {
+    "visualType": "htmlContent443BE3AD55E043BF878BED274D3A6855",
+    "query": {
+      "queryState": {
+        "content": {
+          "projections": [
+            {
+              "field": {
+                "Measure": {
+                  "Expression": {
+                    "SourceRef": {
+                      "Entity": "_Dashboard"
+                    }
+                  },
+                  "Property": "HTML - Full Dashboard"
+                }
+              },
+              "queryRef": "_Dashboard.HTML - Full Dashboard",
+              "nativeQueryRef": "HTML - Full Dashboard"
+            }
+          ]
+        }
+      }
+    },
+    "drillFilterOtherVisuals": true
+  },
+  "filterConfig": {
+    "filters": [
+      {
+        "name": "a1948708a3e2d1013e80",
+        "field": {
+          "Measure": {
+            "Expression": {
+              "SourceRef": {
+                "Entity": "_Dashboard"
+              }
+            },
+            "Property": "HTML - Full Dashboard"
+          }
+        },
+        "type": "Advanced"
+      }
+    ]
+  }
+}

@@ -1,0 +1,123 @@
+/// Container table for all DAX measures
+table _Measures
+	lineageTag: cf729718-fe43-49a7-ba43-a1b31b9aaa94
+
+	/// Total views across all channels
+	measure 'Total Views' = SUMX(channel_summary, IFERROR(VALUE(channel_summary[total_views]), 0))
+		formatString: #,0
+		lineageTag: 58eb9a95-b82b-4401-8e40-e49686368e63
+
+	/// Total likes across all channels
+	measure 'Total Likes' = SUMX(channel_summary, IFERROR(VALUE(channel_summary[total_likes]), 0))
+		formatString: #,0
+		lineageTag: 1e65a28c-abe5-4a22-bbff-2516e5e87625
+
+	/// Net subscriber gain
+	measure 'Total Subscribers Gained' = SUMX(channel_summary, IFERROR(VALUE(channel_summary[net_subscriber_gain]), 0))
+		formatString: #,0
+		lineageTag: 995dcd45-a318-4753-a18c-5bdefc5e061a
+
+	/// Total shares
+	measure 'Total Shares' = SUMX(channel_summary, IFERROR(VALUE(channel_summary[total_shares]), 0))
+		formatString: #,0
+		lineageTag: 1ee67f4d-1d6b-484a-9a31-3e36e30dcbe6
+
+	/// Total comments
+	measure 'Total Comments' = SUMX(channel_summary, IFERROR(VALUE(channel_summary[total_comments]), 0))
+		formatString: #,0
+		lineageTag: a2875a90-2dda-4f0e-8fbe-3a174dda3824
+
+	/// Total impressions
+	measure 'Total Impressions' = SUMX(channel_summary, IFERROR(VALUE(channel_summary[total_impressions]), 0))
+		formatString: #,0
+		lineageTag: a962fa4d-0199-467f-8576-3e232d341cf1
+
+	/// Average click-through rate
+	measure 'Avg CTR' = AVERAGEX(channel_summary, IFERROR(VALUE(channel_summary[avg_ctr]), BLANK()))
+		formatString: 0.00%
+		lineageTag: 0a0e3dc9-b137-425c-a287-0414716e84f1
+
+	/// Total number of videos
+	measure 'Total Videos' = SUM(channel_summary[video_count])
+		formatString: #,0
+		lineageTag: 8a7af744-f370-4a13-9444-1db058888899
+
+	/// Avg watch time per view in minutes
+	measure 'Avg Watch Time per View (min)' = AVERAGEX(channel_summary, IFERROR(VALUE(channel_summary[avg_watch_time_per_view_minutes]), BLANK()))
+		formatString: 0.00
+		lineageTag: dafcc72b-9da8-4a9e-9076-7f884fb63e8c
+
+	/// Total views by category from category_trends
+	measure 'Category Total Views' = SUMX(category_trends, IFERROR(VALUE(category_trends[total_views]), 0))
+		formatString: #,0
+		lineageTag: 4bd4dbaf-785b-47ea-87d2-c25509abac7c
+
+	/// Total watch time by category
+	measure 'Category Total Watch Time' = SUMX(category_trends, IFERROR(VALUE(category_trends[total_watch_time_minutes]), 0))
+		formatString: #,0
+		lineageTag: b2ba0899-e802-477b-a91a-f0c2703e236a
+
+	/// Total likes by category
+	measure 'Category Total Likes' = SUMX(category_trends, IFERROR(VALUE(category_trends[total_likes]), 0))
+		formatString: #,0
+		lineageTag: 2170a479-45d5-4f36-be84-d08fc9fb92b7
+
+	/// Average CTR by category
+	measure 'Category Avg CTR' = AVERAGEX(category_trends, IFERROR(VALUE(category_trends[avg_ctr]), BLANK()))
+		formatString: 0.00%
+		lineageTag: 83e4f72b-d6e0-4fb3-a828-ca5964926e90
+
+	/// Average like rate by category
+	measure 'Category Avg Like Rate' = AVERAGEX(category_trends, IFERROR(VALUE(category_trends[like_rate]), BLANK()))
+		formatString: 0.00%
+		lineageTag: 75fb29f0-67bd-48ab-a95e-5ae7eb9aa111
+
+	/// Average watch time per view by category
+	measure 'Category Avg Watch Time' = AVERAGEX(category_trends, IFERROR(VALUE(category_trends[avg_watch_time_per_view_minutes]), BLANK()))
+		formatString: 0.00
+		lineageTag: ded2f667-bd44-4268-ac74-ba5ba2040059
+
+	/// Total views from video_performance table
+	measure 'Video Total Views' = SUMX(video_performance, IFERROR(VALUE(video_performance[total_views]), 0))
+		formatString: #,0
+		lineageTag: c159eeb0-24c7-43b3-a7e4-e88d9e91939a
+
+	/// Total video count
+	measure 'Video Count' = COUNTROWS(video_performance)
+		formatString: #,0
+		lineageTag: 7d2d1fa7-c88d-47ae-8e9e-437e7c321376
+
+	/// Average CTR per video
+	measure 'Video Avg CTR' = AVERAGEX(video_performance, IFERROR(VALUE(video_performance[avg_ctr]), BLANK()))
+		formatString: 0.00%
+		lineageTag: e3f079a4-9fd9-43be-987b-006cf63c1ab9
+
+	/// Average watch time per video view
+	measure 'Video Avg Watch Time' = AVERAGEX(video_performance, IFERROR(VALUE(video_performance[avg_watch_time_per_view_minutes]), BLANK()))
+		formatString: 0.00
+		lineageTag: 8e44ef39-8f4f-4f25-8b30-9abcd0769c54
+
+	/// Total likes from video_performance
+	measure 'Video Total Likes' = SUMX(video_performance, IFERROR(VALUE(video_performance[total_likes]), 0))
+		formatString: #,0
+		lineageTag: 0e3b49cf-3048-43f5-b8a8-88499b6c650b
+
+	/// Total shares from video_performance
+	measure 'Video Total Shares' = SUMX(video_performance, IFERROR(VALUE(video_performance[total_shares]), 0))
+		formatString: #,0
+		lineageTag: e40fe7ae-5fee-4d9b-9501-c0f862efe912
+
+	/// Average like rate per video
+	measure 'Video Avg Like Rate' = AVERAGEX(video_performance, IFERROR(VALUE(video_performance[like_rate]), BLANK()))
+		formatString: 0.00%
+		lineageTag: 33a2a270-c11e-4783-96eb-4a8f5729e588
+
+	column x
+		lineageTag: 8d8b7f20-d70e-407e-9704-73a8d9951e4a
+		isNameInferred
+		sourceColumn: [x]
+
+	partition _Measures = calculated
+		mode: import
+		source = ROW("x", BLANK())
+

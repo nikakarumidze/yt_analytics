@@ -1,0 +1,19 @@
+relationship f98b35fe-3c9d-4987-8cd5-e745cc52127a
+	joinOnDateBehavior: datePartOnly
+	fromColumn: channel_summary.channel_published_date
+	toColumn: LocalDateTable_c1e66a2b-9060-45b1-a014-88fa43e87951.Date
+
+relationship 465c3618-fdd3-45d5-91a4-c6e59c8aeff0
+	joinOnDateBehavior: datePartOnly
+	fromColumn: category_trends.metrics_month
+	toColumn: LocalDateTable_961a5941-44ca-43c9-b4e4-e5015cbd66fb.Date
+
+relationship 79bb470e-7bbf-4acf-b21c-3a8f3f393be8
+	joinOnDateBehavior: datePartOnly
+	fromColumn: video_performance.video_published_date
+	toColumn: LocalDateTable_ec46a9b3-c9f9-46bf-9f30-7feac846e0b8.Date
+
+relationship AutoDetected_4fd63f43-7cf9-4fdc-83fc-a8530b08510b
+	fromColumn: video_performance.total_views
+	toColumn: category_trends.total_views
+

@@ -1,0 +1,138 @@
+table channel_summary
+	lineageTag: 2c56f74d-162e-4c21-98aa-059e8e9bda3e
+
+	column channel_id
+		dataType: string
+		lineageTag: 992c0b54-d1b8-4776-a416-b020119ffcbf
+		summarizeBy: none
+		sourceColumn: channel_id
+
+		annotation SummarizationSetBy = Automatic
+
+	column channel_name
+		dataType: string
+		lineageTag: 158adf12-045c-4559-ad7c-bf7e9382d316
+		summarizeBy: none
+		sourceColumn: channel_name
+
+		annotation SummarizationSetBy = Automatic
+
+	column channel_published_date
+		dataType: dateTime
+		formatString: Long Date
+		lineageTag: 1c58c8e3-1293-4ef3-94fe-eb09ee01ec6b
+		summarizeBy: none
+		sourceColumn: channel_published_date
+
+		variation Variation
+			isDefault
+			relationship: f98b35fe-3c9d-4987-8cd5-e745cc52127a
+			defaultHierarchy: LocalDateTable_c1e66a2b-9060-45b1-a014-88fa43e87951.'Date Hierarchy'
+
+		annotation SummarizationSetBy = Automatic
+
+		annotation UnderlyingDateTimeDataType = Date
+
+	column video_count
+		dataType: int64
+		formatString: 0
+		lineageTag: e81335a7-94c8-4591-abc9-02f821dd335b
+		summarizeBy: sum
+		sourceColumn: video_count
+
+		annotation SummarizationSetBy = Automatic
+
+	column total_views
+		dataType: string
+		lineageTag: ceb51d75-1c2e-4e33-b40f-f08eb71a366d
+		summarizeBy: none
+		sourceColumn: total_views
+
+		annotation SummarizationSetBy = Automatic
+
+	column total_watch_time_minutes
+		dataType: string
+		lineageTag: 941cdcfc-1654-4496-b250-7b7325ca48ed
+		summarizeBy: none
+		sourceColumn: total_watch_time_minutes
+
+		annotation SummarizationSetBy = Automatic
+
+	column total_likes
+		dataType: string
+		lineageTag: 5170ca2f-87fb-4a95-9dff-6ead39e41c6b
+		summarizeBy: none
+		sourceColumn: total_likes
+
+		annotation SummarizationSetBy = Automatic
+
+	column net_subscriber_gain
+		dataType: string
+		lineageTag: 60aa94f6-7490-4f3c-8f99-8e35cee37ea1
+		summarizeBy: none
+		sourceColumn: net_subscriber_gain
+
+		annotation SummarizationSetBy = Automatic
+
+	column total_shares
+		dataType: string
+		lineageTag: a0efdf32-0310-4edd-b368-08a865127ae2
+		summarizeBy: none
+		sourceColumn: total_shares
+
+		annotation SummarizationSetBy = Automatic
+
+	column total_comments
+		dataType: string
+		lineageTag: ed89bf94-edcc-4134-bf82-506aae63062b
+		summarizeBy: none
+		sourceColumn: total_comments
+
+		annotation SummarizationSetBy = Automatic
+
+	column total_impressions
+		dataType: string
+		lineageTag: b90de6d1-8f30-48fd-a09a-5517b8cacfeb
+		summarizeBy: none
+		sourceColumn: total_impressions
+
+		annotation SummarizationSetBy = Automatic
+
+	column avg_watch_time_per_view_minutes
+		dataType: string
+		lineageTag: ba422753-0361-4fc9-a510-e28f908a1a07
+		summarizeBy: none
+		sourceColumn: avg_watch_time_per_view_minutes
+
+		annotation SummarizationSetBy = Automatic
+
+	column like_rate
+		dataType: string
+		lineageTag: 7ac27151-3b2c-4ccc-8122-55a1d5d2b07a
+		summarizeBy: none
+		sourceColumn: like_rate
+
+		annotation SummarizationSetBy = Automatic
+
+	column avg_ctr
+		dataType: string
+		lineageTag: 8124aa7a-5af1-4632-a5ea-8c61b5c4f625
+		summarizeBy: none
+		sourceColumn: avg_ctr
+
+		annotation SummarizationSetBy = Automatic
+
+	partition channel_summary = m
+		mode: import
+		source =
+				let
+				    Source = Python.Execute("import duckdb#(lf)import pandas as pd#(lf)#(lf)con = duckdb.connect(""C:/Users/nikak/OneDrive/Desktop/yt_analytics/yt_analytics/dev.duckdb"", read_only=True)#(lf)#(lf)df = con.execute(""select * from mart_channel_summary"").fetchdf()#(lf)#(lf)df"),
+				    df1 = Source{[Name="df"]}[Value],
+				    #"Changed Type" = Table.TransformColumnTypes(df1,{{"channel_id", type text}, {"channel_name", type text}, {"channel_published_date", type date}, {"video_count", Int64.Type}, {"total_views", type text}, {"total_watch_time_minutes", type text}, {"total_likes", type text}, {"net_subscriber_gain", type text}, {"total_shares", type text}, {"total_comments", type text}, {"total_impressions", type text}, {"avg_watch_time_per_view_minutes", type text}, {"like_rate", type text}, {"avg_ctr", type text}})
+				in
+				    #"Changed Type"
+
+	annotation PBI_NavigationStepName = Navigation
+
+	annotation PBI_ResultType = Table
+

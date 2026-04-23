@@ -1,0 +1,26 @@
+model Model
+	culture: en-US
+	defaultPowerBIDataSourceVersion: powerBI_V3
+	sourceQueryCulture: ka-GE
+	dataAccessOptions
+		legacyRedirects
+		returnErrorValuesAsNull
+
+annotation __PBI_TimeIntelligenceEnabled = 1
+
+annotation PBI_ProTooling = ["DevMode","MCP-PBIModeling"]
+
+annotation PBI_QueryOrder = ["channel_summary","category_trends","video_performance"]
+
+ref table channel_summary
+ref table DateTableTemplate_a5609a37-70d7-408d-be0d-9a9c932b8c71
+ref table LocalDateTable_c1e66a2b-9060-45b1-a014-88fa43e87951
+ref table category_trends
+ref table LocalDateTable_961a5941-44ca-43c9-b4e4-e5015cbd66fb
+ref table video_performance
+ref table LocalDateTable_ec46a9b3-c9f9-46bf-9f30-7feac846e0b8
+ref table _Measures
+ref table _Dashboard
+
+ref cultureInfo en-US
+

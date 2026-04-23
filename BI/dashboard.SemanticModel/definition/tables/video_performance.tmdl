@@ -1,0 +1,155 @@
+table video_performance
+	lineageTag: cc942701-f439-4087-a14e-f52d5965735e
+
+	column video_id
+		dataType: string
+		lineageTag: 09717a2d-f6b6-417a-b022-6e55fcba5341
+		summarizeBy: none
+		sourceColumn: video_id
+
+		annotation SummarizationSetBy = Automatic
+
+	column video_title
+		dataType: string
+		lineageTag: c0d41561-89cd-4be6-9b85-632748034816
+		summarizeBy: none
+		sourceColumn: video_title
+
+		annotation SummarizationSetBy = Automatic
+
+	column channel_name
+		dataType: string
+		lineageTag: 74f065c5-0499-4d3d-9140-f5601ef95847
+		summarizeBy: none
+		sourceColumn: channel_name
+
+		annotation SummarizationSetBy = Automatic
+
+	column category_name
+		dataType: string
+		lineageTag: afc16827-5671-4c76-9464-523da0c1ba03
+		summarizeBy: none
+		sourceColumn: category_name
+
+		annotation SummarizationSetBy = Automatic
+
+	column video_type
+		dataType: string
+		lineageTag: f8e05243-5238-454c-b383-2b8b949324b0
+		summarizeBy: none
+		sourceColumn: video_type
+
+		annotation SummarizationSetBy = Automatic
+
+	column video_published_date
+		dataType: dateTime
+		formatString: Long Date
+		lineageTag: f9c88a48-ede4-4829-9427-18a456d5a817
+		summarizeBy: none
+		sourceColumn: video_published_date
+
+		variation Variation
+			isDefault
+			relationship: 79bb470e-7bbf-4acf-b21c-3a8f3f393be8
+			defaultHierarchy: LocalDateTable_ec46a9b3-c9f9-46bf-9f30-7feac846e0b8.'Date Hierarchy'
+
+		annotation SummarizationSetBy = Automatic
+
+		annotation UnderlyingDateTimeDataType = Date
+
+	column video_length_seconds
+		dataType: int64
+		formatString: 0
+		lineageTag: f0de2a14-e37a-4761-9c36-6ee9c8385f88
+		summarizeBy: sum
+		sourceColumn: video_length_seconds
+
+		annotation SummarizationSetBy = Automatic
+
+	column total_views
+		dataType: string
+		lineageTag: ad3a6b4c-5d69-4c45-953c-a0064b8091ce
+		summarizeBy: none
+		sourceColumn: total_views
+
+		annotation SummarizationSetBy = Automatic
+
+	column total_watch_time_minutes
+		dataType: string
+		lineageTag: 52d36047-e6f9-4acb-a9e8-db92ed615781
+		summarizeBy: none
+		sourceColumn: total_watch_time_minutes
+
+		annotation SummarizationSetBy = Automatic
+
+	column total_likes
+		dataType: string
+		lineageTag: c536392b-2db5-42e2-a380-3efb15ea1373
+		summarizeBy: none
+		sourceColumn: total_likes
+
+		annotation SummarizationSetBy = Automatic
+
+	column total_shares
+		dataType: string
+		lineageTag: ace86a4d-2ce8-4316-aded-c0e88310da34
+		summarizeBy: none
+		sourceColumn: total_shares
+
+		annotation SummarizationSetBy = Automatic
+
+	column total_comments
+		dataType: string
+		lineageTag: a2ae53ba-f88d-4536-9094-d7fe8af55e5f
+		summarizeBy: none
+		sourceColumn: total_comments
+
+		annotation SummarizationSetBy = Automatic
+
+	column avg_watch_time_per_view_minutes
+		dataType: string
+		lineageTag: 5c90b60f-ece4-4e33-bd2e-1efe5ae866aa
+		summarizeBy: none
+		sourceColumn: avg_watch_time_per_view_minutes
+
+		annotation SummarizationSetBy = Automatic
+
+	column like_rate
+		dataType: string
+		lineageTag: e852dab5-94cd-409b-ae50-53e6b507ea9b
+		summarizeBy: none
+		sourceColumn: like_rate
+
+		annotation SummarizationSetBy = Automatic
+
+	column avg_ctr
+		dataType: string
+		lineageTag: 27bf2ddc-8d49-44fb-beb2-6e1c66bca758
+		summarizeBy: none
+		sourceColumn: avg_ctr
+
+		annotation SummarizationSetBy = Automatic
+
+	column rank_by_views_in_channel
+		dataType: int64
+		formatString: 0
+		lineageTag: c26ac4df-ac1e-4a63-b7f9-2b070d982cd7
+		summarizeBy: sum
+		sourceColumn: rank_by_views_in_channel
+
+		annotation SummarizationSetBy = Automatic
+
+	partition video_performance = m
+		mode: import
+		source =
+				let
+				    Source = Python.Execute("import duckdb#(lf)import pandas as pd#(lf)#(lf)con = duckdb.connect(""C:/Users/nikak/OneDrive/Desktop/yt_analytics/yt_analytics/dev.duckdb"", read_only=True)#(lf)#(lf)df = con.execute(""select * from mart_video_performance"").fetchdf()#(lf)#(lf)df"),
+				    df1 = Source{[Name="df"]}[Value],
+				    #"Changed Type" = Table.TransformColumnTypes(df1,{{"video_id", type text}, {"video_title", type text}, {"channel_name", type text}, {"category_name", type text}, {"video_type", type text}, {"video_published_date", type date}, {"video_length_seconds", Int64.Type}, {"total_views", type text}, {"total_watch_time_minutes", type text}, {"total_likes", type text}, {"total_shares", type text}, {"total_comments", type text}, {"avg_watch_time_per_view_minutes", type text}, {"like_rate", type text}, {"avg_ctr", type text}, {"rank_by_views_in_channel", Int64.Type}})
+				in
+				    #"Changed Type"
+
+	annotation PBI_NavigationStepName = Navigation
+
+	annotation PBI_ResultType = Table
+

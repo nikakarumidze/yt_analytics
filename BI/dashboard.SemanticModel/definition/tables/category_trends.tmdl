@@ -1,0 +1,106 @@
+table category_trends
+	lineageTag: 2a42abe1-5400-445e-ad34-66b5c5df0234
+
+	column category_name
+		dataType: string
+		lineageTag: 11d68eaa-d7f7-456e-9c72-5ef8c63642d6
+		summarizeBy: none
+		sourceColumn: category_name
+
+		annotation SummarizationSetBy = Automatic
+
+	column metrics_month
+		dataType: dateTime
+		formatString: Long Date
+		lineageTag: bc2d49ec-36c2-4ed6-9ca9-0f263ba951c0
+		summarizeBy: none
+		sourceColumn: metrics_month
+
+		variation Variation
+			isDefault
+			relationship: 465c3618-fdd3-45d5-91a4-c6e59c8aeff0
+			defaultHierarchy: LocalDateTable_961a5941-44ca-43c9-b4e4-e5015cbd66fb.'Date Hierarchy'
+
+		annotation SummarizationSetBy = Automatic
+
+		annotation UnderlyingDateTimeDataType = Date
+
+	column video_type
+		dataType: string
+		lineageTag: df04a326-ee7b-4bad-b875-dd1d2177fd3f
+		summarizeBy: none
+		sourceColumn: video_type
+
+		annotation SummarizationSetBy = Automatic
+
+	column active_videos
+		dataType: int64
+		formatString: 0
+		lineageTag: 0d014463-70e4-4559-8bb7-9ae69af223df
+		summarizeBy: sum
+		sourceColumn: active_videos
+
+		annotation SummarizationSetBy = Automatic
+
+	column total_views
+		dataType: string
+		lineageTag: cabee30f-62fe-4098-8b4e-27aed4a7ccf7
+		summarizeBy: none
+		sourceColumn: total_views
+
+		annotation SummarizationSetBy = Automatic
+
+	column total_watch_time_minutes
+		dataType: string
+		lineageTag: 60ec57d7-f83c-432d-8397-44d6f7982e01
+		summarizeBy: none
+		sourceColumn: total_watch_time_minutes
+
+		annotation SummarizationSetBy = Automatic
+
+	column total_likes
+		dataType: string
+		lineageTag: 14100a33-730f-479f-89fe-8e043e7ce2b9
+		summarizeBy: none
+		sourceColumn: total_likes
+
+		annotation SummarizationSetBy = Automatic
+
+	column avg_watch_time_per_view_minutes
+		dataType: string
+		lineageTag: d54ca938-041c-48fb-8cd0-980e9b549725
+		summarizeBy: none
+		sourceColumn: avg_watch_time_per_view_minutes
+
+		annotation SummarizationSetBy = Automatic
+
+	column like_rate
+		dataType: string
+		lineageTag: 36bddc75-aa9f-4f4d-8bac-c6ba1896828f
+		summarizeBy: none
+		sourceColumn: like_rate
+
+		annotation SummarizationSetBy = Automatic
+
+	column avg_ctr
+		dataType: string
+		lineageTag: 8703c4dc-fd32-4011-bd1f-d90aaab15f84
+		summarizeBy: none
+		sourceColumn: avg_ctr
+
+		annotation SummarizationSetBy = Automatic
+
+	partition category_trends = m
+		mode: import
+		source =
+				let
+				    Source = Python.Execute("import duckdb#(lf)import pandas as pd#(lf)#(lf)con = duckdb.connect(""C:/Users/nikak/OneDrive/Desktop/yt_analytics/yt_analytics/dev.duckdb"", read_only=True)#(lf)#(lf)df = con.execute(""select * from mart_category_trends"").fetchdf()#(lf)#(lf)df"),
+				    df1 = Source{[Name="df"]}[Value],
+				    #"Changed Type" = Table.TransformColumnTypes(df1,{{"category_name", type text}, {"metrics_month", type date}, {"video_type", type text}, {"active_videos", Int64.Type}, {"total_views", type text}, {"total_watch_time_minutes", type text}, {"total_likes", type text}, {"avg_watch_time_per_view_minutes", type text}, {"like_rate", type text}, {"avg_ctr", type text}})
+				in
+				    #"Changed Type"
+
+	annotation PBI_NavigationStepName = Navigation
+
+	annotation PBI_ResultType = Table
+
