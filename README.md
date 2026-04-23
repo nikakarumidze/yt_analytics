@@ -17,7 +17,7 @@ Models cover 10 channels, 772 videos, and ~34K daily metric records across 5 con
 ---
 
 ## Project Structure
-[lineage.png]
+![dbt Lineage Graph](dbt_lineage.png)
 
 ```
 yt_analytics/
