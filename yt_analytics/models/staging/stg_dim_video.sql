@@ -1,7 +1,7 @@
 {{ config(materialized='view') }}
 
 with source as (
-    select * from {{ source('raw', 'dim_video') }}
+    select * from {{ ref('dim_video') }}
 ),
 
 deduped as (

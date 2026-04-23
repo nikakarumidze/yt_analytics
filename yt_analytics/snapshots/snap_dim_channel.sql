@@ -14,7 +14,7 @@ select
     `Channel ID`                                        as channel_id,
     `Channel Name`                                      as channel_name,
     parse_date('%d/%m/%Y', `Channel published Date`)    as channel_published_date
-from {{ source('raw', 'dim_channel') }}
+from {{ ref('dim_channel') }}
 where `Channel ID` is not null
 
 {% endsnapshot %}

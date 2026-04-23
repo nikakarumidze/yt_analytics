@@ -1,3 +1,5 @@
+{{ config(materialized='table') }}
+
 select
     video_id,
     video_title,

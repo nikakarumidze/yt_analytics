@@ -1,6 +1,6 @@
 {{ config(materialized='view') }}
 with source as (
-    select * from {{ source('raw', 'dim_channel') }}
+    select * from {{ ref('dim_channel') }}
 ),
 
 renamed as (

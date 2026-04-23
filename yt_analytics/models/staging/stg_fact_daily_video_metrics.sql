@@ -1,4 +1,4 @@
-{{ config(materialized='table') }}
+{{ config(materialized='view') }}
 
 with source as (
     select * from {{ ref('fact_daily_video_metrics') }}

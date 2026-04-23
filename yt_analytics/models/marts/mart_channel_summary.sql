@@ -1,3 +1,5 @@
+{{ config(materialized='table') }}
+
 select
     channel_id,
     channel_name,

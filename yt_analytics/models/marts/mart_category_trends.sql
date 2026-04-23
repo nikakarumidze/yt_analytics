@@ -1,3 +1,5 @@
+{{ config(materialized='table') }}
+
 select
     category_name,
     metrics_month,
