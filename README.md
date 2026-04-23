@@ -74,23 +74,17 @@ seeds (raw CSVs)
 | `stg_dim_category` | view | Tiny table, no transformation cost |
 | `stg_dim_channel` | view | Replaced by snapshot for history tracking |
 | `stg_dim_video` | view | Small, simple casts only |
-| `stg_fact_daily_video_metrics` | **table** | 34K rows, strptime cast + window function dedup — materialized to avoid DuckDB type resolution issues through view chains |
+| `stg_fact_daily_video_metrics` | view | 34K rows, strptime cast + window function dedup |
 | `int_video_metrics_joined` | **incremental** | Central wide table; merge on `metric_id` (VARCHAR surrogate key); only new dates processed on each run |
-| `mart_channel_summary` | view | Aggregation on top of incremental int layer |
-| `mart_video_performance` | view | Aggregation on top of incremental int layer |
-| `mart_category_trends` | view | Aggregation on top of incremental int layer |
-
-### Why `stg_fact` is a table, not a view
-
-DuckDB has a known binder bug where `DATE` columns referenced through a view chain cause an internal type resolution error (`inequal types: DATE != VARCHAR`). Materializing the staging fact model as a physical table forces DuckDB to store the cast DATE column explicitly, resolving the issue for all downstream models.
-
----
+| `mart_channel_summary` | table | Aggregation on top of incremental int layer |
+| `mart_video_performance` | table | Aggregation on top of incremental int layer |
+| `mart_category_trends` | table | Aggregation on top of incremental int layer |
 
 ## Upsert Logic
 
 ### Intermediate layer — `int_video_metrics_joined`
 
-Uses `incremental_strategy='merge'` with a VARCHAR surrogate key to avoid DuckDB's DATE merge bug.
+Uses `incremental_strategy='merge'` 
 
 **Surrogate key:** `metric_id = video_id || '_' || cast(metrics_date as varchar)`
 
